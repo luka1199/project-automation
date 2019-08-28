@@ -1,0 +1,7 @@
+credentials:
+  username: ''
+  password: ''
+
+paths:
+  windows_projects: ''
+  linux_projects: ''
