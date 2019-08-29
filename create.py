@@ -26,6 +26,11 @@ def getAccount(username, password):
     return Github(username, password)
 
 
+# Returns a GitHub object
+def getAccountWithToken(token):
+    return Github(token)
+
+
 # Returns list of all repository names
 def getRepos(user):
     return [repo.name for repo in user.get_repos()]
@@ -55,22 +60,70 @@ if __name__ == "__main__":
     while(True):
         # user
         if state == 0:
+            use_token = True
+            token = ""
+            password = ""
             config = getConfig()
             if config is None:
                 config = {}
-            if "credentials" not in config.keys() or "username" not in config["credentials"].keys() or \
-                "password" not in config["credentials"].keys() or config["credentials"]["username"] == "" or \
-                    config["credentials"]["password"] == "":
-
-                print("No username or password set in config.yaml")
+            if "credentials" not in config.keys():
+                print("No credentials set in config.yaml")
                 username = input("Username: ")
-                password = getpass('Password: ')
-                user = getAccount(username, password).get_user()
+
+                while(True):
+                    credentials_input = input(
+                        "Use token (Default: yes)? (y or n): ")
+                    if credentials_input == "" or credentials_input.lower() == "y":
+                        break
+                    elif credentials_input.lower() == "n":
+                        use_token = False
+                        break
+                    else:
+                        print("Invalid input")
+                
+                if use_token:
+                    token = input("Access token: ")
+                else:
+                    password = input("Password: ")
+
             else:
-                username = config["credentials"]["username"]
-                password = config["credentials"]["password"]
-                user = getAccount(
-                    username, password).get_user()
+                if "username" not in config["credentials"].keys() \
+                        or config["credentials"]["username"] == "":
+                    print("No username config.yaml")
+                    username = input("Username: ")
+                else:
+                    username = config["credentials"]["username"]
+
+                if "access_token" in config["credentials"].keys() \
+                        and config["credentials"]["access_token"] != "":
+                    token = config["credentials"]["access_token"]
+                else:
+                    if "password" in config["credentials"].keys() \
+                            and config["credentials"]["password"] != "":
+                        password = config["credentials"]["password"]
+                        use_token = False
+                    else:
+                        print("No access token or password set in config.yaml")
+                        while(True):
+                            credentials_input = input(
+                                "Use token (Default: yes)? (y or n): ")
+                            if credentials_input == "" or credentials_input.lower() == "y":
+                                break
+                            elif credentials_input.lower() == "n":
+                                use_token = False
+                                break
+                            else:
+                                print("Invalid input")
+
+                        if use_token:
+                            token = input("Access token: ")
+                        else:
+                            password = input("Password: ")
+
+            if use_token:
+                user = getAccountWithToken(token).get_user()
+            else:
+                user = getAccount(username, password).get_user()
             if state == 0: state += 1
 
         # project_name

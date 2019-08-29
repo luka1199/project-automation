@@ -1,6 +1,7 @@
 credentials:
   username: ''
   password: ''
+  access_token: ''
 
 paths:
   windows_projects: ''
