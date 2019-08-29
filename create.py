@@ -7,7 +7,7 @@ from shutil import copyfile
 
 # Loads the config.yaml file and returns the config
 def getConfig():
-    pwd = os.getcwd()
+    pwd = os.path.dirname(os.path.realpath(__file__))
     config_path = os.path.join(pwd, 'config.yaml')
     config_default_path = os.path.join(pwd, 'config_default.yaml')
     if not os.path.isfile(config_path):
@@ -150,11 +150,11 @@ if __name__ == "__main__":
             else:
                 os.system("mkdir {}".format(project_path))
                 f = open(os.path.join(project_path, ".gitignore"), "a").close()
-                f = open(os.path.join(project_path, "README.md"), "a").close()
-                os.system("echo # {} >> {}".format(
-                    project_name, os.path.join(project_path, "README.md")))
-                os.system("{}/create_repo.sh '{}' '{}' '{}'".format(os.getcwd(), project_name, project_path, username))
-                os.system("code {}".format(project_path))
+                f = open(os.path.join(project_path, "README.md"), "a")
+                f.write("# {}\n{}".format(project_name, project_description))
+                f.close()
+                os.system("{}/create_repo.sh '{}' '{}' '{}'".format(os.path.dirname(
+                    os.path.realpath(__file__)), project_name, project_path, username))
 
                 if state == 6:
                     state += 1
