@@ -149,10 +149,10 @@ if __name__ == "__main__":
                 state = 0
             else:
                 os.system("mkdir {}".format(project_path))
-
+                f = open(os.path.join(project_path, ".gitignore"), "a").close()
+                f = open(os.path.join(project_path, "README.md"), "a").close()
                 os.system("echo # {} >> {}".format(
                     project_name, os.path.join(project_path, "README.md")))
-                f = open(os.path.join(project_path, ".gitignore"), "a").close()
                 os.system("{}/create_repo.sh '{}' '{}' '{}'".format(os.getcwd(), project_name, project_path, username))
                 os.system("code {}".format(project_path))
 

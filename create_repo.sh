@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd $2
 git init
 git add README.md
