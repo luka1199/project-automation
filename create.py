@@ -37,7 +37,7 @@ def createRepo(user, name, description="", private=True):
         print("This repository already exists")
         return False
     else:
-        user.create_repo(name, description=description, private=private)
+        # user.create_repo(name, description=description, private=private)
         return True
 
 
@@ -107,15 +107,23 @@ if __name__ == "__main__":
                     paths = config["paths"]
                     names_dict = dict(enumerate(paths.keys()))
                     paths_dict = dict(enumerate(paths.values()))
-                    for i in names_dict.keys():
-                        print("{}: {} (\"{}\")".format(
-                            i+1, names_dict[i], paths_dict[i]))
                     while(True):
+                        for i in names_dict.keys():
+                            print("{}: {} (\"{}\")".format(
+                                i+1, names_dict[i], paths_dict[i]))
+                        print("ENTER: Custom path")
                         path_input = input("Chose a path: (eg. 1 2 3): ")
-                        if path_input.isdigit() and int(path_input) - 1 in dict(names_dict).keys():
+                        if path_input == "":
+                            project_parent = input("Project path: ")
+                            if project_parent == ".":
+                                project_parent = os.getcwd()
+                            break
+                        elif path_input.isdigit() and int(path_input) - 1 in dict(names_dict).keys():
                             project_parent = dict(paths_dict)[int(path_input) - 1]
                             break
                 if not os.path.isdir(os.path.join(project_parent, project_name)):
+                    print("Project path set to \"{}\"".format(
+                        os.path.join(project_parent, project_name)))
                     break
                 else:
                     print("\"{}\" already exists in \"{}\"".format(
