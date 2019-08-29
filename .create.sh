@@ -1,5 +1,5 @@
 #!/bin/bash
 
 function create() {
-    python create
+    python create.py
 }
