@@ -1,1 +1,4 @@
 PyGithub
+yaml
+getpass
+shutil
