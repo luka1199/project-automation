@@ -4,5 +4,5 @@ credentials:
   access_token: ''
 
 paths:
-  windows_projects: ''
-  linux_projects: ''
+  projects1: ''
+  projects2: ''
