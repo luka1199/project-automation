@@ -7,8 +7,8 @@ A script that automates my GitHub project creation routine using PyGithub.
 - Creates a private or public GitHub repository with project name and description
 - Creates the project in the specified directory
 - Adds a ```README.md``` with the project name and description to the project
-- Adds a empty ```.gitignore``` to the project
-- First commit
+- Adds an empty ```.gitignore``` to the project
+- Commit ```README.md``` and ```.gitignore```
 - Opens project in Visual Studio Code
 
 ## Installation
