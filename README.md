@@ -9,7 +9,7 @@ A script that automates my GitHub project creation routine using PyGithub.
 - Adds a ```README.md``` with the project name and description to the project
 - Adds an empty ```.gitignore``` to the project
 - Commits ```README.md``` and ```.gitignore```
-- Opens project in Visual Studio Code
+- Opens the project in Visual Studio Code
 
 ## Installation
 
