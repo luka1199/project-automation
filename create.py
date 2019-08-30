@@ -42,7 +42,7 @@ def createRepo(user, name, description="", private=True):
         print("This repository already exists")
         return False
     else:
-        # user.create_repo(name, description=description, private=private)
+        user.create_repo(name, description=description, private=private)
         return True
 
 
