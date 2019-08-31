@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from github import Github
 import yaml
 import os
