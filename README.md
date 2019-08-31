@@ -22,6 +22,12 @@ git clone https://github.com/luka1199/project-automation
 ### Dependencies
 Run ```pip install -r requirenments.txt``` to install the dependencies. 
 
+### Permissions
+Make the ```create_repo.sh``` file executable:
+```
+chmod +x create_repo.sh
+```
+
 ### Setup
 The ```config.yaml``` will be created after running ```python create.py``` for the first time.  
 Alternatively you can run ```cp config_default.yaml config.yaml``` to create the config manually.
