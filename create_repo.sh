@@ -1,5 +1,8 @@
 #!/bin/bash
-
+if [[ $# -eq 0 ]] ; then
+    echo 'No arguments'
+    exit 1
+fi
 cd $2
 git init
 git add README.md

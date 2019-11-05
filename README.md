@@ -46,7 +46,7 @@ paths:
   path2: ''
   path3: ''
 ```
-You change the names of the paths and add as many as you like.
+You can change the names of the paths and add as many as you like.
 
 ## How to run the script
 
