@@ -1,8 +1,8 @@
-<p align="center"><img src="img/screenshot.png" alt="screenshot" width="400"></p>
-
 # Project Automation
 
 A script that automates my GitHub project creation routine using PyGithub.
+
+<p align="center"><img src="img/screenshot.png" alt="screenshot" width="400"></p>
 
 ## What it does
 - Creates a private or public GitHub repository with project name and description
