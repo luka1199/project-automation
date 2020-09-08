@@ -1,6 +1,7 @@
+<p align="center"><img src="img/screenshot.png" alt="screenshot" width="400"></p>
+
 # Project Automation
 
-<p align="center"><img src="img/screenshot.png" alt="screenshot" width="400"></p>
 A script that automates my GitHub project creation routine using PyGithub.
 
 ## What it does
