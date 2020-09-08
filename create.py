@@ -175,12 +175,14 @@ class ProjectAutomation:
                 names_dict = dict(enumerate(paths.keys()))
                 paths_dict = dict(enumerate(paths.values()))
                 while(True):
+                    j = 0
                     for i in names_dict.keys():
                         print("{}: {} (\"{}\")".format(
                             i+1, names_dict[i], paths_dict[i]))
-                    print("ENTER: Custom path")
-                    path_input = input("Chose a path: (eg. 1 2 3): ")
-                    if path_input == "":
+                        j = i + 2
+                    print("{}: Custom path".format(j))
+                    path_input = input("Chose a path: ")
+                    if path_input == str(j):
                         self.project_parent = input("Project path: ")
                         if self.project_parent == ".":
                             self.project_parent = os.getcwd()
