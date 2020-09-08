@@ -65,6 +65,7 @@ class ProjectAutomation:
             
             else:
                 break
+            print()
 
     def loadUser(self):
         """Loads GitHub user specified in config.yaml or with user inputs.
@@ -213,7 +214,7 @@ class ProjectAutomation:
             if confirm_input == "" or confirm_input.lower() == "y":
                 self.confirmed = True
                 break
-            elif project_private_input.lower() == "n":
+            elif confirm_input.lower() == "n":
                 break
             else:
                 print("Invalid input")
