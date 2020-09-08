@@ -1,6 +1,6 @@
 # Project Automation
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45404400/64042975-706e7a00-cb63-11e9-83ff-51b3560cba5a.png" alt="screenshot" width="400"></p>
+<p align="center"><img src="img/screenshot.png" alt="screenshot" width="400"></p>
 A script that automates my GitHub project creation routine using PyGithub.
 
 ## What it does

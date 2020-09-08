@@ -228,6 +228,7 @@ class ProjectAutomation:
         """Creates a GitHub repository, the local project folder, the .gitignore file,
         the README.md and does the first commit.
         """
+        print("Creating project \"{}\"...".format(self.project_name)) 
         if not self.createRepo(self.user, self.project_name, self.project_description, self.project_private):
             self.reset()
         else:
