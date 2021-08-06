@@ -237,7 +237,7 @@ class ProjectAutomation:
             f = open(os.path.join(self.project_path, "README.md"), "a")
             f.write("# {}\n{}".format(self.project_name, self.project_description))
             f.close()
-            os.system("{}/create_repo.sh '{}' '{}' '{}'".format(os.path.dirname(
+            os.system("sh {}/create_repo.sh '{}' '{}' '{}'".format(os.path.dirname(
                 os.path.realpath(__file__)), self.project_name, self.project_path, self.username))
         webbrowser.open("https://github.com/{}/{}".format(self.username, self.project_name))
 
